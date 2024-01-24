@@ -195,15 +195,15 @@ body {
 }
 
 .spinner {
+  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: rgba(21, 19, 19, 0.974);
-  position: absolute;
   display: none;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: left;
   z-index: 99999999 !important;
 }
 
@@ -211,19 +211,13 @@ body {
   color: #1aaa81;
   margin-left: 10px;
   font-size: 12px;
-  position: absolute;
-  top: 30px;
-  left: 20px;
-  margin-top: 28px;
-  margin-left: -55px;
+  margin-top: 55px;
+  margin-left: 55px;
 }
 
 .spinner-border {
   color: #1aaa81;
   border-style: double;
-  position: absolute;
-  top: 30px;
-  left: 20px;
   height: 70px;
   width: 70px;
 }
