@@ -1,0 +1,235 @@
+@font-face {
+  font-family: "Amiri-Regular";
+  src: url("./fonts/Amiri-Regular.ttf") format("ttf");
+  /* Add more font formats if needed (woff, ttf, etc.) */
+}
+@media print {
+  /* Apply the fixed width only when printing */
+  .pdf-container {
+    width: 1200px;
+  }
+}
+body {
+  /* font-family: "Amiri-Regular", serif; */
+  font-size: 18px;
+}
+#pdf-content {
+  /* font-family: "Amiri-Regular", serif; */
+}
+#pdf-title,
+#pdf-header,
+#pdf-register-title {
+  position: relative;
+}
+.primary-text {
+  color: #1aaa81;
+  font-size: 22px;
+}
+.primary-cell {
+  border: 1.5px solid #1aaa81;
+  border-radius: 4px;
+  padding: 1px;
+}
+.primary-header-cell {
+  border: 2.5px solid #1aaa81;
+  border-radius: 8px;
+  padding: 1px;
+}
+.secondary-text {
+  color: #f7850c;
+  font-size: 22px;
+}
+.secondary-cell {
+  border: 1.5px solid #f7850c;
+  border-radius: 4px;
+  padding: 1px;
+}
+.secondary-header-cell {
+  border: 2.5px solid #f7850c;
+  border-radius: 8px;
+  padding: 1px;
+}
+.small-right-border {
+  width: 15px;
+  height: 15px;
+  border-right: 1px solid #1aaa81;
+  border-top: 1px solid #1aaa81;
+}
+.small-left-border {
+  width: 15px;
+  height: 15px;
+  border-left: 1px solid #f7850c;
+  border-top: 1px solid #f7850c;
+}
+.bottom-border {
+  border-bottom: 2px solid #f7850c;
+}
+.large-right-border {
+  width: 30px;
+  height: 30px;
+  border-right: 1px solid #1aaa81;
+  border-top: 1px solid #1aaa81;
+}
+.large-left-border {
+  width: 30px;
+  height: 30px;
+  border-left: 1px solid #1aaa81;
+  border-top: 1px solid #1aaa81;
+}
+.move-up {
+  position: relative;
+  bottom: 10px;
+}
+.move-up-large {
+  position: relative;
+  bottom: 25px;
+}
+.move-down-large {
+  position: relative;
+  top: 25px;
+}
+
+.outer-primary-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #1aaa81; /* Outline color */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the inner circle */
+.inner-primary-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #1aaa81; /* Background color */
+  border-radius: 50%;
+  position: absolute;
+}
+
+.outer-secondery-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #f7850c; /* Outline color */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the inner circle */
+.inner-secondery-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #f7850c; /* Background color */
+  border-radius: 50%;
+  position: absolute;
+}
+
+.rectangle-container {
+  width: 45px;
+  height: 70px; /* Set the height less than the width */
+  position: relative;
+  border: 1.5px solid #1aaa81; /* Outline color */
+  border-radius: 5px; /* Outer border radius */
+  overflow: hidden; /* Clip the outer border radius */
+}
+
+/* Style for the squares on either side of the line */
+.square {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  box-sizing: border-box; /* Include borders in the total width/height */
+}
+
+/* Style for the top square */
+.square.top {
+  top: 0;
+  border-bottom: 1.5px solid #1aaa81; /* Border bottom for the top square */
+}
+
+/* Style for the bottom square */
+.square.bottom {
+  bottom: 0;
+  border-top: 1.5px solid #1aaa81; /* Border top for the bottom square */
+}
+
+.save-button {
+  position: fixed; /* You can change this to 'relative' if you want it relative to the body */
+  bottom: 40px;
+  right: 40px;
+  background-color: #0796f6;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(230, 7, 7, 0.2); /* Box shadow added */
+  transition: box-shadow 0.3s ease; /* Smooth transition for the box shadow */
+}
+
+.save-button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow on hover */
+}
+
+.save-button i {
+  font-size: 30px;
+}
+
+@media (max-width: 1199px) {
+  .pdf-registered-students {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Optional: Enables smooth scrolling on iOS devices */
+    width: 95vw;
+  }
+  .pdf-registered-students-content {
+    width: 1200px;
+  }
+}
+
+.spinner {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(21, 19, 19, 0.974);
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999 !important;
+}
+
+.loading-text {
+  color: #1aaa81;
+  margin-left: 10px;
+  font-size: 12px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  margin-top: 28px;
+  margin-left: -55px;
+}
+
+.spinner-border {
+  color: #1aaa81;
+  border-style: double;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  height: 70px;
+  width: 70px;
+}
+.center-line {
+  width: 100%;
+  height: 5px;
+  background-color: #1aaa81; /* Change the color as needed */
+  margin: auto;
+}
