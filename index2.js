@@ -65,6 +65,8 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
     console.log(document.body);
     var canvas = await html2canvas(parentElement, {
       windowWidth: windowWidth,
+      imageTimeout: 0,
+      scale: 1,
     });
 
     await doc.addImage(
