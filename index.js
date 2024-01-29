@@ -105,7 +105,7 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
   );
 
   // Save the PDF
-  doc.save("تقرير المدرس اليومى.pdf");
+  doc.save("تقرير الحصة.pdf");
   document.getElementById("spinner").style.display = "none";
   document
     .querySelector("meta[name=viewport]")
