@@ -32,11 +32,12 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
     // Save the PDF
     // Get the base64 encoded PDF as a string
     var pdfBase64 = doc.output("datauristring");
-    console.log(pdfBase64);
+    console.log("eee");
     // Create a link element
     var downloadLink = document.createElement("a");
     downloadLink.href = pdfBase64;
-    downloadLink.download = "تقرير الحصة.pdf"; // Set the filename
+    downloadLink.download = encodeURIComponent("session-report.pdf");
+    // Set the filename
     downloadLink.click();
     document.getElementById("spinner").style.display = "none";
     document
