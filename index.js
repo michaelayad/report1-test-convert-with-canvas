@@ -1,16 +1,16 @@
 window.jsPDF = window.jspdf.jsPDF;
 
-var doc = new jsPDF("p", "mm", "a4");
 document.getElementById("downloadBtn").addEventListener("click", async () => {
   // Save the original viewport content
   var originalViewport = document.querySelector("meta[name=viewport]").content;
-  document.getElementById("spinner").style.display = "flex";
-
   // Change the viewport to a fixed width
   document
     .querySelector("meta[name=viewport]")
     .setAttribute("content", "width=1400");
 
+  document.getElementById("spinner").style.display = "flex";
+
+  var doc = new jsPDF("p", "mm", "a4", true);
   // Define PDF dimensions
   var pdfWidth = 210;
   var pdfHeight = 297;
@@ -20,6 +20,23 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
   var elementScaleFactor = pdfWidth / windowWidth;
   var remainingSpace = pdfHeight - 2 * startY;
   var page = 1;
+
+  async function captureCanvasAfterWidthModification() {
+    // Process different groups of elements
+    await processElements(
+      document.querySelectorAll(
+        ".pdf-header, .session-Statistic, .assistant-table-header, .assistant-table-rows"
+      )
+    );
+
+    // Save the PDF
+    doc.save("تقرير الحصة.pdf");
+    document.getElementById("spinner").style.display = "none";
+    document
+      .querySelector("meta[name=viewport]")
+      .setAttribute("content", originalViewport);
+  }
+
   async function processElements(elements) {
     var parentElement = document.createElement("div");
     var footer = document.getElementById("pdf-footer");
@@ -54,7 +71,9 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
           pdfMargin,
           startY,
           190,
-          parentHeight
+          parentHeight,
+          "",
+          "FAST"
         );
         await doc.addImage(
           footerCanvas.toDataURL("image/png"),
@@ -62,7 +81,9 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
           pdfMargin,
           pdfHeight - pdfMargin - footerHeight,
           190,
-          footerHeight
+          footerHeight,
+          "",
+          "FAST"
         );
         document.body.removeChild(parentElement);
         parentElement.innerHTML = "";
@@ -84,7 +105,9 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
       pdfMargin,
       startY,
       190,
-      parentHeight
+      parentHeight,
+      "",
+      "FAST"
     );
     await doc.addImage(
       footerCanvas.toDataURL("image/png"),
@@ -92,22 +115,12 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
       pdfMargin,
       pdfHeight - pdfMargin - footerHeight,
       190,
-      footerHeight
+      footerHeight,
+      "",
+      "FAST"
     );
     document.body.removeChild(parentElement);
   }
 
-  // Process different groups of elements
-  await processElements(
-    document.querySelectorAll(
-      ".pdf-header , .session-Statistic , .assistant-table-header , .assistant-table-rows"
-    )
-  );
-
-  // Save the PDF
-  doc.save("تقرير الحصة.pdf");
-  document.getElementById("spinner").style.display = "none";
-  document
-    .querySelector("meta[name=viewport]")
-    .setAttribute("content", originalViewport);
+  await captureCanvasAfterWidthModification();
 });

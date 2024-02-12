@@ -1,19 +1,27 @@
 @font-face {
-  font-family: "Kufam";
-  src: url("./assets/fonts/Kufam-VariableFont_wght.ttf") format("ttf");
+  font-family: "Almarai-Bold";
+  src: url("./assets/fonts/Almarai-Bold.ttf") format("truetype"); /* Adjust the path to your font file */
+}
+@font-face {
+  font-family: "Almarai-Regular";
+  src: url("./assets/fonts/Almarai-Regular.ttf") format("truetype"); /* Adjust the path to your font file */
+}
+@font-face {
+  font-family: "Almarai-ExtraBold";
+  src: url("./assets/fonts/Almarai-ExtraBold.ttf") format("truetype"); /* Adjust the path to your font file */
 }
 body {
-  /* font-family: "Amiri-Regular", serif; */
+  font-family: "Almarai-Regular";
   font-size: 18px;
 }
 h1 {
-  font-family: "Kufam", serif;
-  font-weight: bolder;
-  font-size: 70px;
-  color: #1aaa81;
-  text-shadow: 1px 1px 10px #f59a39;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #f7850c;
+  font-family: "Almarai-ExtraBold";
+  /* font-weight: bolder; */
+  font-size: 30pt;
+  width: fit-content;
+  color: #f7850c;
+  border-bottom: 3px solid #1aaa81;
+  padding: 15px;
 }
 #pdf-content {
   /* font-family: "Amiri-Regular", serif; */
@@ -25,14 +33,14 @@ h1 {
 }
 .primary-text {
   color: #1aaa81;
-  font-size: 22px;
+  font-size: 24px;
 }
 .small-primary-text {
-  color: #1aaa81;
-  font-size: 18px;
+  color: hsl(163, 73%, 38%);
+  font-size: 20px;
 }
 .small-text {
-  font-size: 17px;
+  font-size: 18px;
 }
 .primary-cell {
   border: 1.5px solid #1aaa81;
@@ -46,11 +54,11 @@ h1 {
 }
 .secondary-text {
   color: #f7850c;
-  font-size: 22px;
+  font-size: 24px;
 }
 .small-secondary-text {
   color: #f7850c;
-  font-size: 18px;
+  font-size: 20px;
 }
 .secondary-cell {
   border: 1.5px solid #f7850c;
@@ -73,14 +81,17 @@ h1 {
   border-top: 2px solid #f7850c;
 }
 .save-button {
+  /* font-family: "Almarai-Regular", serif; */
   position: fixed; /* You can change this to 'relative' if you want it relative to the body */
   bottom: 40px;
   right: 40px;
-  background-color: #0796f6;
+  background-color: #1aaa81; /* Updated background color */
   color: #fff;
-  padding: 10px;
+  padding: 5px 20px;
   border: none;
-  border-radius: 10px;
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -94,6 +105,8 @@ h1 {
 
 .save-button i {
   font-size: 30px;
+  margin-left: 10px; /* Adjust icon spacing */
+  margin-right: 10px; /* Adjust icon spacing */
 }
 
 @media (max-width: 1199px) {
@@ -117,13 +130,12 @@ h1 {
   position: fixed;
   inset: 0;
   display: none;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   align-items: center;
   justify-content: center;
   z-index: 99999999999 !important;
 }
-
 
 .spinner-border {
   color: #1aaa81;
@@ -131,10 +143,10 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 150px;
-  width: 150px;
-  margin-left: -75px;
-  margin-top: -75px;
+  height: 100px;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
 }
 .center-line {
   width: 100%;
