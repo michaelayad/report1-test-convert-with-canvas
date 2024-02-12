@@ -30,7 +30,14 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
     );
 
     // Save the PDF
-    doc.save("تقرير الحصة.pdf");
+    // Get the base64 encoded PDF as a string
+    var pdfBase64 = doc.output("datauristring");
+    console.log(pdfBase64);
+    // Create a link element
+    var downloadLink = document.createElement("a");
+    downloadLink.href = pdfBase64;
+    downloadLink.download = "تقرير الحصة.pdf"; // Set the filename
+    downloadLink.click();
     document.getElementById("spinner").style.display = "none";
     document
       .querySelector("meta[name=viewport]")
@@ -51,7 +58,7 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
     for (let i = 0; i < elements.length; i++) {
       var element = elements[i];
       var elementHeight = element.offsetHeight * elementScaleFactor;
-      console.log(i);
+      // console.log(i);
       var elementClone = element.cloneNode(true);
       if (remainingSpace > elementHeight) {
         remainingSpace -= elementHeight;
@@ -64,7 +71,7 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
           windowWidth: windowWidth,
           scale: 1,
         });
-        console.log("kkkk");
+        // console.log("kkkk");
         await doc.addImage(
           canvas.toDataURL("image/png"),
           "PNG",
@@ -98,7 +105,7 @@ document.getElementById("downloadBtn").addEventListener("click", async () => {
       windowWidth: windowWidth,
       scale: 1,
     });
-    console.log("kkkk", page, parentHeight, canvas);
+    // console.log("kkkk", page, parentHeight, canvas);
     await doc.addImage(
       canvas.toDataURL("image/png"),
       "PNG",
